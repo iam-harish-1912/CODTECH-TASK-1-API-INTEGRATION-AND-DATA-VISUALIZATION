@@ -1,0 +1,30 @@
+import requests
+import matplotlib.pyplot as plt
+
+# Enter your API key here
+API_KEY = 'YOUR_API_KEY'
+CITY = 'Chennai'
+URL = f'https://api.openweathermap.org/data/2.5/forecast?q={CITY}&appid={API_KEY}&units=metric'
+
+# Fetch weather data
+response = requests.get(URL)
+data = response.json()
+
+# Check for valid response
+if response.status_code != 200 or 'list' not in data:
+    print("Failed to fetch data:", data)
+else:
+    # Extract time and temperature data
+    timestamps = [item['dt_txt'] for item in data['list'][:8]]  # Next 24 hours (3-hour interval)
+    temperatures = [item['main']['temp'] for item in data['list'][:8]]
+
+    # Plotting
+    plt.figure(figsize=(10, 5))
+    plt.plot(timestamps, temperatures, marker='o', color='b', linestyle='--')
+    plt.title(f'Temperature Forecast for {CITY} (Next 24 Hours)')
+    plt.xlabel('Time')
+    plt.ylabel('Temperature (°C)')
+    plt.xticks(rotation=45)
+    plt.grid(True)
+    plt.tight_layout()
+    plt.show()

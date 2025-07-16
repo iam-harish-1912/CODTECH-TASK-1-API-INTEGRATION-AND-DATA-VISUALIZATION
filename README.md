@@ -1,6 +1,6 @@
 # CODTECH-TASK-1-API-INTEGRATION-AND-DATA-VISUALIZATION
-*Name*: HARISH K                                                               
-*Company*: CODTECH IT SOLUTIONS                                                                             
+*Name*: HARISH K    
+*Company*: CODTECH IT SOLUTIONS                   
 *ID*: CT06DG2247                                                                                             
 *Domain*: Python Programming                                                                               
 *Duration*: June to July 2025
